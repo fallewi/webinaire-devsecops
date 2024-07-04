@@ -8,7 +8,7 @@ app.get("/catalogDetail", (req, res, next) => {
   console.log("Catalog Detail Version 1 Get Request Successful");
   res.json({
              "version":"1",
-             "vendors":[ "ABC.com" ]
+             "vendors":[ "datascientest.com" ]
               } )
 });
 
