@@ -1,0 +1,14 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy # new king called  KubeArmorPolicy tha define a new policy
+metadata:
+  name: ksp-block-read # name of the resource
+  namespace: default # namespace to deploy the resource
+spec:
+  selector:
+    matchLabels:
+      app: nginx # Pod that have the label  app: nginx
+  file:
+    severity: 9 # the severity of the configuration
+    matchPaths:
+    - path: /etc/passwd # path of the file
+    action: Block #action

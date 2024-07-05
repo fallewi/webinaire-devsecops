@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy # new king called  KubeArmorPolicy tha define a new policy
+metadata:
+  name: ksp-wordpress-block-process # name of the resource
+  namespace: default # namespace to deploy the resource
+spec:
+  severity: 3 # the severity of the configuration
+  selector:
+    matchLabels: # Pod that have the label  app: nginx
+      app: nginx
+  process:
+    matchPaths: # process to block
+    - path: /usr/bin/apt # path of the apt binary
+    - path: /usr/bin/apt-get # path of the apt-get binary
+  action: Block #action
